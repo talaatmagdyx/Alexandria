@@ -15,7 +15,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # We add those two gems
 gem 'carrierwave'
 gem 'carrierwave-base64'
-
+# Add the kaminari gem
+gem 'kaminari'
 
 
 group :development, :test do
