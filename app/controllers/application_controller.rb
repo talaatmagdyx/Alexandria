@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::API
   rescue_from QueryBuilderError, with: :query_builder_error
 
-  protected
+
+    protected
 
   def query_builder_error(error)
     render status: 400, json: {
@@ -11,6 +12,12 @@ class ApplicationController < ActionController::API
         }
     }
   end
+
+
+  def sort(scope)
+    Sorter.new(scope, params).sort
+  end
+
 
   def paginate(scope)
     paginator = Paginator.new(scope, request.query_parameters, current_url)

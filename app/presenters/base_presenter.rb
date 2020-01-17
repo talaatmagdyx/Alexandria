@@ -1,6 +1,6 @@
 class BasePresenter
   # use Meta Programming
-  # if not love meta programming please enter below
+  # if not love meta programming please look below
   CLASS_ATTRIBUTES = {
       build_with: :build_attributes,
       related_to: :relations,
