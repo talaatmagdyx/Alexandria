@@ -2,6 +2,7 @@ class BasePresenter
   # use Meta Programming
   # if not love meta programming please look below
   #
+  include Rails.application.routes.url_helpers
 
   CLASS_ATTRIBUTES = {
       build_with: :build_attributes,

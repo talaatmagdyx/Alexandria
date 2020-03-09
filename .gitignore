@@ -28,3 +28,9 @@
 
 # Ignore Master Api Book
 /Master API Book
+
+
+/public/uploads
+/images
+
+.gitignore

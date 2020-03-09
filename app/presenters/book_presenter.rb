@@ -10,6 +10,8 @@ class BookPresenter < BasePresenter
                 :author_id
 
   def cover
-    @object.cover.url.to_s
+    path = @object.cover.url.to_s
+    path[0] = '' if path[0] == '/'
+    "#{root_url}#{path}"
   end
 end
