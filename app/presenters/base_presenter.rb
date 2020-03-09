@@ -1,6 +1,8 @@
 class BasePresenter
   # use Meta Programming
   # if not love meta programming please look below
+  #
+
   CLASS_ATTRIBUTES = {
       build_with: :build_attributes,
       related_to: :relations,
@@ -32,6 +34,19 @@ class BasePresenter
 
   def as_json(*)
     @data
+  end
+
+
+  def build(actions)
+    actions.each { |action| send(action) }
+    self
+  end
+  def fields
+    FieldPicker.new(self).pick
+  end
+
+  def embeds
+    EmbedPicker.new(self).embed
   end
 
 end
