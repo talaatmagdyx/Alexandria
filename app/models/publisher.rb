@@ -1,5 +1,7 @@
 class Publisher < ApplicationRecord
-  has_many :books
+  include PgSearch
+  multisearchable against: [:name]
 
+  has_many :books
   validates :name, presence: true
 end

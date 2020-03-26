@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :books
     resources :authors
     resources :publishers
+    get '/search/:text', to: 'search#index'
+
   end
   root to: 'books#index'
 
