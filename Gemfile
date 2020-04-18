@@ -18,11 +18,15 @@ gem 'nokogiri', '~> 1.11.0.rc1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-# We add those two gems
+# uppload fiels
 gem 'carrierwave'
 gem 'carrierwave-base64'
-# Add the kaminari gem
+
+# customizable and sophisticated paginator
 gem 'kaminari'
+
+# secure password
+gem 'bcrypt', '~> 3.1', '>= 3.1.13'
 
 
 group :development, :test do
