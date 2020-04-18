@@ -2,10 +2,18 @@ require 'rails_helper'
 
 RSpec.describe 'Search', type: :request do
 
+  before do
+    allow_any_instance_of(SearchController).to(
+      receive(:validate_auth_scheme).and_return(true))
+    allow_any_instance_of(SearchController).to(
+      receive(:authenticate_client).and_return(true))
+  end
+
   let(:ruby_microscope) { create(:ruby_microscope) }
   let(:rails_tutorial) { create(:ruby_on_rails_tutorial) }
   let(:agile_web_dev) { create(:agile_web_development) }
   let(:books) { [ruby_microscope, rails_tutorial, agile_web_dev] }
+  let(:json_body) { JSON.parse(response.body) }
 
   describe 'GET /api/search/:text' do
     before do
