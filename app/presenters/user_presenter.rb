@@ -1,4 +1,6 @@
 class UserPresenter < BasePresenter
+  cached
+
   FIELDS = %i[id email given_name family_name role last_logged_in_at
             confirmed_at confirmation_sent_at reset_password_sent_at
             created_at updated_at]

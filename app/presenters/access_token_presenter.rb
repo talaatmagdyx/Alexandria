@@ -1,4 +1,5 @@
 class AccessTokenPresenter < BasePresenter
+
   build_with    :id, :token, :user_id, :api_key_id,
                 :accessed_at, :created_at, :updated_at
   related_to    :user
