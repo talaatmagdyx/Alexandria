@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Publishers', type: :request do
+  include_context 'Skip Auth'
 
   before do
     allow_any_instance_of(PublishersController).to(

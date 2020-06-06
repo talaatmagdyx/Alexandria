@@ -1,4 +1,6 @@
 class ApiKey < ApplicationRecord
+  has_many :access_tokens
+
   before_validation :generate_key, on: :create
   validates :key, presence: true
   validates :active, presence: true

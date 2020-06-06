@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Authors', type: :request do
-
+  include_context 'Skip Auth'
   before do
     allow_any_instance_of(AuthorsController).to(
       receive(:validate_auth_scheme).and_return(true))

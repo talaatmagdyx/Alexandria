@@ -19,10 +19,12 @@ module Alexandria
     def build_data
       if @data.respond_to?(:count)
         @data.map do |entity|
-          presenter(entity).new(entity, @params).build(@actions)
+          # Here
+          presenter(entity).new(entity, @params, @options).build(@actions)
         end
       else
-        presenter(@data).new(@data, @params).build(@actions)
+        # And here
+        presenter(@data).new(@data, @params, @options).build(@actions)
       end
     end
 
