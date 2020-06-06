@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_133911) do
+ActiveRecord::Schema.define(version: 2020_06_06_150728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 2020_06_06_133911) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "cover"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+    t.text "download_url"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["isbn_10"], name: "index_books_on_isbn_10"
     t.index ["isbn_13"], name: "index_books_on_isbn_13"
@@ -74,6 +77,23 @@ ActiveRecord::Schema.define(version: 2020_06_06_133911) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "user_id"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+    t.string "idempotency_key"
+    t.integer "status", default: 0
+    t.string "charge_id"
+    t.string "token"
+    t.text "error", default: "{}", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_purchases_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_purchases_on_user_id_and_book_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,4 +121,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_133911) do
   add_foreign_key "access_tokens", "users"
   add_foreign_key "books", "authors"
   add_foreign_key "books", "publishers"
+  add_foreign_key "purchases", "books"
+  add_foreign_key "purchases", "users"
 end

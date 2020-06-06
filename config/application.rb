@@ -19,6 +19,8 @@ require 'rails/test_unit/railtie'
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
 
+env_variables = File.join('config', 'env.rb')
+load(env_variables) if File.exists?(env_variables)
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :access_tokens, only: :create do
       delete '/', action: :destroy, on: :collection
     end
+
+    resources :purchases, only: [:index, :show, :create]
+
     get '/search/:text', to: 'search#index'
   end
 

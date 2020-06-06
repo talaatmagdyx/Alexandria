@@ -36,11 +36,11 @@ class ApplicationController < ActionController::API
     }
   end
 
-  def unprocessable_entity!(resource)
+  def unprocessable_entity!(resource, errors = nil)
     render status: :unprocessable_entity, json: {
         error: {
             message: "Invalid parameters for resource #{resource.class}.",
-            invalid_params: resource.errors
+            invalid_params: errors || resource.errors
         }
     }
   end

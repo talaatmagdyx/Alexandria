@@ -1,0 +1,175 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/tokens
+    body:
+      encoding: UTF-8
+      string: card[number]=4000000000000002&card[exp_month]=6&card[exp_year]=2028&card[cvc]=314
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/5.11.0
+      Authorization:
+      - Bearer sk_test_8xAPQDc5sgxMelYB7riJDw43
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-Telemetry:
+      - '{"last_request_metrics":{"request_id":"req_yme0ysaD0rg0ra","request_duration_ms":1230}}'
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"5.11.0","lang":"ruby","lang_version":"2.6.5 p114 (2019-10-01)","platform":"x86_64-linux","engine":"ruby","publisher":"stripe","uname":"Linux
+        version 5.4.0-31-generic (buildd@lgw01-amd64-059) (gcc version 9.3.0 (Ubuntu
+        9.3.0-10ubuntu2)) #35-Ubuntu SMP Thu May 7 20:20:34 UTC 2020","hostname":"talaatmagdy"}'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 06 Jun 2020 15:32:27 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '785'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_ciPDh6wCjZysGR
+      Stripe-Version:
+      - '2018-09-06'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "tok_1Gr40VIesFl9siJm9bHHN0re",
+          "object": "token",
+          "card": {
+            "id": "card_1Gr40UIesFl9siJm283cexcr",
+            "object": "card",
+            "address_city": null,
+            "address_country": null,
+            "address_line1": null,
+            "address_line1_check": null,
+            "address_line2": null,
+            "address_state": null,
+            "address_zip": null,
+            "address_zip_check": null,
+            "brand": "Visa",
+            "country": "US",
+            "cvc_check": "unchecked",
+            "dynamic_last4": null,
+            "exp_month": 6,
+            "exp_year": 2028,
+            "fingerprint": "hIkkQ6rFdNysddEp",
+            "funding": "credit",
+            "last4": "0002",
+            "metadata": {
+            },
+            "name": null,
+            "tokenization_method": null
+          },
+          "client_ip": "197.40.74.129",
+          "created": 1591457547,
+          "livemode": false,
+          "type": "card",
+          "used": false
+        }
+  recorded_at: Sat, 06 Jun 2020 15:32:27 GMT
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/charges
+    body:
+      encoding: UTF-8
+      string: amount=299&currency=USD&source=tok_1Gr40VIesFl9siJm9bHHN0re&metadata[purchase_id]=2&description=Charge+for+Ruby+Under+a+Microscope+%28Purchase+ID+2%29
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/5.11.0
+      Authorization:
+      - Bearer sk_test_8xAPQDc5sgxMelYB7riJDw43
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-Telemetry:
+      - '{"last_request_metrics":{"request_id":"req_ciPDh6wCjZysGR","request_duration_ms":885}}'
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"5.11.0","lang":"ruby","lang_version":"2.6.5 p114 (2019-10-01)","platform":"x86_64-linux","engine":"ruby","publisher":"stripe","uname":"Linux
+        version 5.4.0-31-generic (buildd@lgw01-amd64-059) (gcc version 9.3.0 (Ubuntu
+        9.3.0-10ubuntu2)) #35-Ubuntu SMP Thu May 7 20:20:34 UTC 2020","hostname":"talaatmagdy"}'
+      Idempotency-Key:
+      - 2020-06-06 17:32:26 +0200/2/2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 402
+      message: Payment Required
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 06 Jun 2020 15:32:28 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '269'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Idempotency-Key:
+      - 2020-06-06 17:32:26 +0200/2/2
+      Original-Request:
+      - req_MzJTInejF5vwPH
+      Request-Id:
+      - req_MzJTInejF5vwPH
+      Stripe-Should-Retry:
+      - 'false'
+      Stripe-Version:
+      - '2018-09-06'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "charge": "ch_1Gr40VIesFl9siJmNpIzExTS",
+            "code": "card_declined",
+            "decline_code": "generic_decline",
+            "doc_url": "https://stripe.com/docs/error-codes/card-declined",
+            "message": "Your card was declined.",
+            "type": "card_error"
+          }
+        }
+  recorded_at: Sat, 06 Jun 2020 15:32:28 GMT
+recorded_with: VCR 6.0.0
