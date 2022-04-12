@@ -13,7 +13,7 @@ gem 'pg_search'
 # Use Puma as the app server
 gem 'puma'
 
-gem 'nokogiri', '~> 1.11.0.rc1'
+gem 'nokogiri', '~> 1.13.4'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
